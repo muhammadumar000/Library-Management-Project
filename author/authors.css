@@ -13,7 +13,7 @@
 
 .author_data {
   /* border: 2px solid red; */
-  min-width: 40%;
+  width: 40%;
   min-height: 16rem;
   padding: 2rem;
   display: flex;
@@ -48,4 +48,43 @@
     font-size: 1.2rem;
     border-radius: 5px;
     cursor: pointer;
+}
+
+/* Media Queries */
+
+@media (max-width:950px){
+  .author_data{
+    width: 60%;
+  }
+}
+
+@media (max-width:674px){
+  .author_data{
+    width: 80%;
+  }
+}
+
+@media (max-width:520px){
+  .author_data{
+    width: 90%;
+  }
+  .author_data > h2{
+    font-size: 1.3rem;
+  }
+  .books > h2{
+    font-size: 1rem;
+  }
+}
+
+@media (max-width:400px) {
+  .author_data{
+    width: 95%;
+  }
+  .author_data > h2{
+    font-size: 1.1rem;
+  }
+  .books > h2{
+    font-size: 0.9rem;
+  }
+  
 }

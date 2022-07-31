@@ -1,0 +1,29 @@
+[
+    {
+        "bookName" : "War and Peace",
+        "authorName" : "Leo Tolstoy",
+        "publisherName" : "David Campbell",
+        "publicationDate" : "09-03-2003"
+    }
+    ,
+    {
+        "bookName" : "Middle March",
+        "authorName" : "George ELiot",
+        "publisherName" : "Ursula Martin",
+        "publicationDate" : "12-03-2000"
+    }
+    ,
+    {
+        "bookName" : "Nineteen Eighty-Four",
+        "authorName" : "George Orwell",
+        "publisherName" : "D J Taylor",
+        "publicationDate" : "04-04-1993"
+    }
+    ,
+    {
+        "bookName" : "The Confessions",
+        "authorName" : "Augustine",
+        "publisherName" : "Simon Yarrow",
+        "publicationDate" : "10-04-2009"
+    }
+]

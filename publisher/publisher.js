@@ -81,3 +81,10 @@ const deletePublisher = (index) => {
     outputData();
    
 }  
+
+// for hamburger 
+
+const toggle = () => {
+    document.getElementById('hamburger').classList.toggle('show');
+ }
+ 

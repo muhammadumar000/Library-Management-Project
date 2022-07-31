@@ -13,7 +13,7 @@
   
   .publisher_data {
     /* border: 2px solid red; */
-    min-width: 40%;
+    width: 40%;
     min-height: 16rem;
     padding: 2rem;
     display: flex;
@@ -49,4 +49,30 @@
       border-radius: 5px;
       cursor: pointer;
   }
+
+  /* Media Queries */
+  @media (max-width:950px){
+    .publisher_data{
+      width: 60%;
+    }
+  }
+  
+  @media (max-width:674px){
+    .publisher_data{
+      width: 80%;
+    }
+  }
+  
+  @media (max-width:520px){
+    .publisher_data{
+      width: 90%;
+    }
+    .publisher_data > h2{
+      font-size: 1.3rem;
+    }
+    .books > h2{
+      font-size: 1rem;
+    }
+  }
+
   

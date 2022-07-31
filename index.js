@@ -25,9 +25,42 @@ Publication Date
 
 `;
 
+let bookData = [
+
+    {
+        bookName : "War and Peace",
+        authorName : "Leo Tolstoy",
+        publisherName : "David Campbell",
+        publicationDate : "09-03-2003"
+    }
+    ,
+    {
+        bookName : "Middle March",
+        authorName : "George ELiot",
+        publisherName : "Ursula Martin",
+        publicationDate : "12-03-2000"
+    }
+    ,
+    {
+        bookName : "Nineteen Eighty-Four",
+        authorName : "George Orwell",
+        publisherName : "D J Taylor",
+        publicationDate : "04-04-1993"
+    }
+    ,
+    {
+        bookName : "The Confessions",
+        authorName : "Augustine",
+        publisherName : "Simon Yarrow",
+        publicationDate : "10-04-2009"
+    }
+];
+
+
+
 document.getElementById('book_input').innerHTML = newBookInput;
 
- let bookData = [];
+ 
 
 // getdata from local storage
 
@@ -44,6 +77,7 @@ const getData = () => {
 const setData = () => {
    localStorage.setItem("booksData",JSON.stringify(bookData));
 }
+
 
 getData();
 
@@ -120,24 +154,36 @@ const saveData = () => {
 
 const outputData = () => {
 
-    let dataToAdd = "";
+    let dataToAdd = `<table class="table table-borderless">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Book Name</th>
+        <th scope="col">Author Name</th>
+        <th scope="col">Publisher Name</th>
+        <th scope="col">Publication Date</th>
+        <th scope="col">Edit</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody>`;
 
     for(let i=0;i<bookData.length;i++){
        dataToAdd += `
-
-       <div class="book">
-            <h3 class= "grid_item">${i+1}.</h3>
-            <h3 class= "grid_item">${bookData[i].bookName}</h3>
-            <h3 class= "grid_item">${bookData[i].authorName}</h3>
-            <h3 class= "grid_item">${bookData[i].publisherName}</h3>
-            <h3 class= "grid_item">${bookData[i].publicationDate}</h3>
-            <button class= "grid_item" id="edit" onclick="editData(${i})">Edit</button>
-            <button class= "grid_item" id="delete" onclick = "deleteData(${i})">Delete</button>
-        </div>
-       
+    <tr>
+       <th scope="row">${i+1}</th>
+       <td>${bookData[i].bookName}</td>
+       <td>${bookData[i].authorName}</td>
+       <td>${bookData[i].publisherName}</td>
+       <td>${bookData[i].publicationDate}</td>
+       <td><button class= "grid_item" id="edit" onclick="editData(${i})">Edit</button></td>
+       <td>  <button class= "grid_item" id="delete" onclick = "deleteData(${i})">Delete</button> </td>
+    </tr>
        `;
     }
 
+    dataToAdd = dataToAdd + `</tbody>
+    </table>`;
     document.getElementById('allBooks').innerHTML = dataToAdd;
 
 }
@@ -221,6 +267,11 @@ const updateData = (index) => {
 
 }
 
+// for hamburger 
+
+const toggle = () => {
+   document.getElementById('hamburger').classList.toggle('show');
+}
 
 
 

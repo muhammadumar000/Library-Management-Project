@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Author's Page</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="/author/authors.css">
+    <link rel="stylesheet" href= "/style.css">
+</head>
+<body>
+    <header>
+        <img src="/Assets/icons8-library-building-48.png" alt="LibraryIcon">
+        <h2>Library</h2>
+        
+        <nav id="hamburger">
+            <li> <a href="/index.html">Home</a>  </li>
+            <li> <a class = "active"  href="/author/authors.html">Authors</a> </li>
+            <li> <a href="/publisher/publisher.html">Publishers</a> </li>
+            
+        </nav>
+
+        <div class="menu"  onclick="toggle()"><i class="fa-solid fa-bars"></i></div>
+
+    </header>
+
+    <div class="main_section">
+        <h2>Books Written by Different <span>Authors</span></h2>
+        <hr>
+
+        <div class="Authors_container" id="author">
+            
+        </div>
+    </div>
+
+    <script src="author.js"></script>
+
+
+</body>
+</html>
