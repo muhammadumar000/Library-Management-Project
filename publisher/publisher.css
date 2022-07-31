@@ -76,10 +76,10 @@
 }
 
 @media (max-width: 400px) {
-  .author_data {
+  .publisher_data {
     width: 95%;
   }
-  .author_data > h2 {
+  .publisher_data > h2 {
     font-size: 1.1rem;
   }
   .books > h2 {
