@@ -134,6 +134,7 @@ header > nav:first-child{
 .add_new_book > label {
     color: #d4d1d1;
     font-size: 1.2rem;
+    overflow-x: unset;
 }
 
 .add_new_book >label > input{
