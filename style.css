@@ -145,6 +145,7 @@ header > nav:first-child{
     outline: none;
     border-radius: 5px;
     border: none;
+    overflow-x: unset;
 }
 #publicationDate{
     color: #5A5560;
