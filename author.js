@@ -1,69 +1,86 @@
-alert('hello');
+// getting data from local storage 
+
 let bookData = JSON.parse(localStorage.getItem("booksData"));
-console.log(bookData)
 
-// function for extracting author name from bookData array
+// this func return an array of books by the author which is passed in arguments
 
-let withSameName = [];
-
-const authorName = () => {
-    let authorData = bookData.map(book => book.authorName);
-    // filtering the repeated names
-    
-    let x = [...new Set(authorData)];
-    console.log(x) 
-    let toadd = "";
-    for(let i=0;i<x.length;i++){
-        toadd += `
-        <div class="author_data">
-                <h2>Author Name: ${x[i]}</h2>
-                <h2>Books Written</h2>
-                <hr>
-
-                <div class="books" id = "books"  >
-                 
-                <h2>Hello</h2>
-
-                </div>
-        </div>
-        `;
-    }
-    document.getElementById('author').innerHTML = toadd;
-
-    for(let i=0;i<x.length;i++){
-       withSameName.push(bookData.filter(author => author.authorName === x[i]))
-    }
-    console.log(withSameName)
-
-  
+const authorCheck = (author) => {
+    return bookData.filter(book => book.authorName === author).map(book => book.bookName);
 }
-authorName();
 
-// function for books from diff authors 
+// array which holds the data of author and books written by them
+let booksByAuthor = [];
 
-// const books = () => {
+// function to get the data of authors and books written by them
 
-//     let bookdata = "";
-//     for(let i=0;i<withSameName[1].length;i++){
-//             bookdata += `
+const toGetBooksByAuthor = () => {
+    let dummyVar = bookData.map(book => book.authorName);
+    let authorName = [...new Set(dummyVar)];
 
-//                 <h2>${i+1} ${withSameName[1][i].bookName}</h2>
+    for(let i=0;i<authorName.length;i++){
+        let booksArray = authorCheck(authorName[i]);
+
+        booksByAuthor.push(
+            {
+            authorName:authorName[i],
+            books: booksArray   
+            }
+            );
+    }
+
+   
+}
+
+toGetBooksByAuthor();
+
+// function for output of the books written by different authors in DOM
+const outputBooks = (index) => {
+    let toAdd = "";
+    for(let i=0;i<booksByAuthor[index].books.length;i++){
+        toAdd += `
+          <h2> <span>${i+1}.</span> ${booksByAuthor[index].books[i]} </h2>
+        `
+    }
+
+    return toAdd;
+}
+
+// function for output of the author data in DOM
+
+const outputData = () => {
+
+    let toAdd = "";
+    for(let i=0;i<booksByAuthor.length;i++){
+        
+          let book = outputBooks(i);
+        toAdd += `
+        <div class="author_data">
+        <h2>Author Name: <span> ${booksByAuthor[i].authorName} </span> </h2>
+        <h2>Books Written</h2>
+        <hr>
+        <div class="books" id = "book">
+           ${book}
+        </div>
+        <button class = "deleteBook" onclick = "deleteAuthor(${i})" > Delete Author </button>
+    </div>
+        
+        `
+        
+    }
+    document.getElementById('author').innerHTML = toAdd;
     
-//             `
-       
-       
+}
 
-//     }
+outputData();
 
-//     document.getElementById('books').innerHTML = bookdata;
 
-    
-// }
-//  books();
+// function to delete author
 
-{/* <div class="author_data">
-<h2>Author Name: withSameName[0][0].author</h2>
-<h2>Books Written</h2>
-<hr>
+const deleteAuthor = (index) => {
 
-</div> */}
+    bookData = bookData.filter(books => booksByAuthor[index].authorName!==books.authorName);
+    localStorage.setItem("booksData",JSON.stringify(bookData));
+    booksByAuthor = booksByAuthor.filter((books,i) => index!==i);
+    outputData();
+   
+}  
