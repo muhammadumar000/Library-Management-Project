@@ -81,6 +81,7 @@ const getData = () => {
     }
 }
 
+// setting data in local storage
 const setData = () => {
    localStorage.setItem("booksData",JSON.stringify(bookData));
 }
@@ -88,6 +89,7 @@ const setData = () => {
 
 getData();
 
+// for checking duplicate entry
 const duplicateCheck = (bookName,authorName,publisherName,publicationDate) => {
     let flag = true;
     for(let i=0; i<bookData.length;i++){
@@ -103,6 +105,7 @@ const duplicateCheck = (bookName,authorName,publisherName,publicationDate) => {
     return flag;
 }
 
+// for saving data in local storage
 const saveData = () => {
 
     let newBookName = document.getElementById('bookName');
@@ -159,6 +162,8 @@ const saveData = () => {
 
 }
 
+// to show data in DOM
+
 const outputData = () => {
 
     let dataToAdd = `<table class="table table-borderless">
@@ -197,12 +202,16 @@ const outputData = () => {
 
 outputData();
 
+// to delete book
+
 const deleteData = (index) => {
  bookData=bookData.filter((books,i) => i !==index);
  document.getElementById('book_input').innerHTML = newBookInput;
    setData();
    outputData();
 }
+
+// to edit book data
 
 const editData = (index) => {
 
@@ -233,6 +242,8 @@ const editData = (index) => {
     `;
     document.getElementById('book_input').innerHTML = editInput;
 }
+
+// to update the edited book data
 
 const updateData = (index) => {
  
@@ -274,7 +285,7 @@ const updateData = (index) => {
 
 }
 
-// for hamburger 
+// for hamburger menu toggle
 
 const toggle = () => {
    document.getElementById('hamburger').classList.toggle('show');
