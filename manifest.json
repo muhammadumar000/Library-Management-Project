@@ -2,7 +2,7 @@
     "name":"Library",
     "short_name": "Library",
     "id": "/manifest.json?home=true",
-    "start_url":"?home=true",
+    "start_url":"https://library-management-project.vercel.app/?home=true",
     "icons":[
         {
           "src": "icons/manifest-icon-192.maskable.png",
