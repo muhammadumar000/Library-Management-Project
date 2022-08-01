@@ -1,7 +1,7 @@
 {
     "name":"Library",
     "short_name": "Library",
-    "start_url": "?home=true",
+    "id": "/manifest.json?home=true",
     "icons":[
         {
           "src": "icons/manifest-icon-192.maskable.png",
